@@ -1,0 +1,24 @@
+{
+  "name": "dfagitbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/gitbook serve",
+    "build": "./node_modules/.bin/gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfa0328/DFAGitBook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dfa0328/DFAGitBook/issues"
+  },
+  "homepage": "https://github.com/dfa0328/DFAGitBook#readme",
+  "dependencies": {
+    "gitbook": "^3.2.2",
+    "gitbook-cli": "^2.3.0"
+  }
+}
