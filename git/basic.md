@@ -33,6 +33,19 @@ git remote add origin https://github.com/dfa0328/DFAGitBook.git //添加远程�
 
 ### 多账号 ssh 配置
 
+#### 1、生成指定名字的密钥
+
+`ssh-keygen -t rsa -C "邮箱地址" -f ~/.ssh/github_new`     
+会生成 `github_new`和`github_new.pub`这两个文件
+
+#### 2、密钥复制到托管平台
+
+`vim ~/.ssh/github_new.pub`    
+打开公钥文件 `github_new.pub`,并把内容复制到代码托管平台上
+
+#### 3、修改config文件
+
+
 
 
 
