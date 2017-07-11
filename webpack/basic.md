@@ -51,7 +51,9 @@ output:{
   },
 ```
 
-**加载器配置（module）**     
+**加载器配置（module）**
+ 
+注：module 的加载顺序是从右往左的    
 > 
   * css 文件使用： style-loader，css-loader ，sass-loader或less-loader
   * js 文件使用： babel-loader，babel-preset-es2015，babel-preset-react，jsx-loader
