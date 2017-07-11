@@ -30,14 +30,85 @@ $ npm install --save webpack
 
 ``` 
 
+**入口 (entry) **
 
+```
+entry: {
+  home: "./home.js",
+  about: "./about.js",
+  contact: "./contact.js"
+}
+```
 
+**出口 (output) **
 
+```
+output:{
+    // path目录对应一个绝对路径。
+    path:__dirname+'/public',
+    //静态名称：决定了每个输出 bundle 的名称
+    filename:'bundle.js'
+  },
+```
 
+**加载器配置（module）**     
+> 
+  * css 文件使用： style-loader，css-loader ，sass-loader或less-loader
+  * js 文件使用： babel-loader，babel-preset-es2015，babel-preset-react，jsx-loader
+  * 图片文件使用：url-loader、file-loader、image-webpack-loader
 
+**解析 (resolve) **
 
+```
+resolve: {
+        //查找module的话从这里开始查找
+        root: '/Users/dongfanai/react-demo/src', //绝对路径
+        //自动扩展文件后缀名，意味着我们require模块可以省略不写后缀名
+        extensions: ['', '.js', '.json', '.less'],
+        //模块别名定义，方便后续直接引用别名，无须多写长长的地址
+        alias: {
+        //后续直接 require('kr-ui') 或 import {Title} from 'kr-ui'即可
+            'kr-ui' : path.join(process.cwd(), '/src/Components'),
+        }
+    }
+```
 
+**插件 (plugins) **
 
+```
+var webpack = require('webpack')
+// 导入非 webpack 默认自带插件
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var DashboardPlugin = require('webpack-dashboard/plugin');
+
+// 在配置中添加插件
+plugins: [
+  // 构建优化插件
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    filename: 'vendor-[hash].min.js',
+  }),
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+      drop_console: false,
+    }
+  }),
+  new ExtractTextPlugin({
+    filename: 'build.min.css',
+    allChunks: true,
+  }),
+  new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+  // 编译时(compile time)插件
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': '"production"',
+  }),
+  // webpack-dev-server 强化插件
+  new DashboardPlugin(),
+  new webpack.HotModuleReplacementPlugin(),
+]
+
+```
 
 
 
