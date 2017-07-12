@@ -51,6 +51,12 @@ git remote add origin https://github.com/dfa0328/DFAGitBook.git //添加远程�
 
 `ssh -T git@jslite.github.com` //@后面跟上定义的Host
 
+### 找回误操作删除的代码
+
+`git fsck --lost-found`     //看到commit       
+`git rebase 2e43cd56ee4fb08664cd843cd32836b54fbf594a`   //恢复         
+`git merge 2e43cd56ee4fb08664cd843cd32836b54fbf594a`  //也可以用这个恢复   
+
 ### 新建仓库
 
 #### init
