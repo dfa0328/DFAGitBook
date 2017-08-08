@@ -1,5 +1,6 @@
-## webpack 按需打包加载
+## webpack + react-router 按需加载
 
+>重点在于react-router的getComponent方法和webpack的require.ensure方法的搭配使用.
 
 #### 需要react按需加载的场景
 
@@ -73,9 +74,13 @@ export default (
 ```
 
 
-**注意**：重点在于react-router的getComponent方法和webpack的require.ensure方法的搭配使用.
+**注意点**：
 
+ 1、 require('components/Index').default中require方法的参数不能使用变量，只能使用字符串！
 
+ 2、 如果你的组件是使用es5的module.exports导出的话，那么只需要require('components/Index')即可。而如果你的组件是使用es6的export default导出的话，那么需要加上default！例如：require('components/Index').default
+
+ 3、 如果在路由页面使用了按需加载（require.ensure）加载路由级组件的方式，那么在其他地方（包括本页面）就不要再import了，否则不会打包生成chunk文件。简而言之，需要按需加载的路由级组件必须在路由页面进行加载。
 
 
 
