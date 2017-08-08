@@ -7,6 +7,7 @@
 	* [React生命周期](react/reactComponent.md)
 * Webpack 工程化
 	* [webpack基础](webpack/basic.md)
+	* [webpack——按需加载](webpack/test.md) 
 	* [webpack——入口](webpack/entry.md) 
 	* [webpack——出口](webpack/output.md)     
    
